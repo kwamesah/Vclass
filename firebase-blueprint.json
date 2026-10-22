@@ -1,0 +1,70 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile with role-based access for students, teachers, parents, and administrators",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string", "maxLength": 100 },
+        "email": { "type": "string", "format": "email" },
+        "role": { "type": "string", "enum": ["admin", "teacher", "student", "parent"] },
+        "classLevel": { "type": "string", "maxLength": 30 },
+        "phone": { "type": "string", "maxLength": 30 },
+        "studentId": { "type": "string", "maxLength": 50 },
+        "staffId": { "type": "string", "maxLength": 50 },
+        "avatar": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "name", "email", "role"]
+    },
+    "Announcement": {
+      "title": "Announcement",
+      "description": "Official broadcast bulletins from Salem Montessori administration",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string", "maxLength": 200 },
+        "content": { "type": "string", "maxLength": 5000 },
+        "date": { "type": "string" },
+        "priority": { "type": "string", "enum": ["urgent", "normal"] },
+        "targetAudience": { "type": "string", "enum": ["all", "parents", "students", "teachers"] },
+        "author": { "type": "string" }
+      },
+      "required": ["id", "title", "content", "priority"]
+    },
+    "AttendanceRecord": {
+      "title": "AttendanceRecord",
+      "description": "Daily student attendance tracking records",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "date": { "type": "string" },
+        "classLevel": { "type": "string" },
+        "studentId": { "type": "string" },
+        "studentName": { "type": "string" },
+        "status": { "type": "string", "enum": ["present", "absent", "late"] },
+        "timeRecorded": { "type": "string" }
+      },
+      "required": ["id", "date", "classLevel", "studentId", "status"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User profile documents"
+    },
+    "/announcements/{announcementId}": {
+      "schema": "Announcement",
+      "description": "School wide announcements"
+    },
+    "/attendance/{recordId}": {
+      "schema": "AttendanceRecord",
+      "description": "Class attendance records"
+    },
+    "/admins/{adminId}": {
+      "schema": "UserProfile",
+      "description": "Admin access lookup"
+    }
+  }
+}

@@ -1,0 +1,244 @@
+/* ─── Salem Montessori VClass Login Styling ─── */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap');
+
+:root {
+  --vclass-blue: #0868ed;
+  --vclass-blue-hover: #0757c9;
+  --vclass-navy: #0a2344;
+  --vclass-dark: #061930;
+  --vclass-gold: #f59e0b;
+}
+
+/* Base resets & tap targets */
+.vclass-container {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  color: var(--vclass-navy);
+  -webkit-font-smoothing: antialiased;
+}
+
+.vclass-heading {
+  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Touch optimization for mobile buttons & links */
+.vclass-tap-target {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* Mobile-native input styling */
+.vclass-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1.5px solid #dce5f2;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 3px rgba(10, 35, 68, 0.04);
+}
+
+.vclass-input-wrapper:focus-within {
+  border-color: var(--vclass-blue);
+  box-shadow: 0 0 0 4px rgba(8, 104, 237, 0.12), 0 2px 6px rgba(8, 104, 237, 0.08);
+}
+
+.vclass-input-wrapper.has-error {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.12);
+}
+
+.vclass-input {
+  width: 100%;
+  height: 52px;
+  padding: 0 16px 0 44px;
+  font-size: 16px; /* Essential: prevents automatic iOS Safari zoom */
+  font-weight: 500;
+  color: #0f172a;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.vclass-input::placeholder {
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+.vclass-input-icon {
+  position: absolute;
+  left: 14px;
+  width: 18px;
+  height: 18px;
+  color: #64748b;
+  pointer-events: none;
+  transition: color 0.2s;
+}
+
+.vclass-input-wrapper:focus-within .vclass-input-icon {
+  color: var(--vclass-blue);
+}
+
+/* Primary Action Button */
+.vclass-btn-primary {
+  width: 100%;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: #ffffff;
+  background: linear-gradient(135deg, #0868ed 0%, #064ec2 100%);
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(8, 104, 237, 0.28);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.vclass-btn-primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #0975ff 0%, #0859de 100%);
+  box-shadow: 0 6px 20px rgba(8, 104, 237, 0.35);
+  transform: translateY(-1px);
+}
+
+.vclass-btn-primary:active:not(:disabled) {
+  transform: scale(0.985);
+  box-shadow: 0 2px 8px rgba(8, 104, 237, 0.2);
+}
+
+.vclass-btn-primary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Secondary / Google Button */
+.vclass-btn-secondary {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e293b;
+  background: #ffffff;
+  border: 1.5px solid #dce5f2;
+  border-radius: 14px;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(10, 35, 68, 0.03);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.vclass-btn-secondary:hover:not(:disabled) {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  transform: translateY(-1px);
+}
+
+.vclass-btn-secondary:active:not(:disabled) {
+  transform: scale(0.985);
+}
+
+/* Segmented Tab Switcher */
+.vclass-tab-track {
+  display: flex;
+  padding: 4px;
+  background: #eef4fc;
+  border-radius: 14px;
+  border: 1px solid #dce5f2;
+}
+
+.vclass-tab-button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #64748b;
+  background: transparent;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.vclass-tab-button.active {
+  background: #ffffff;
+  color: var(--vclass-navy);
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(10, 35, 68, 0.08);
+}
+
+/* Floating Ambient Glows */
+.vclass-glow-blue {
+  background: radial-gradient(circle, rgba(16, 184, 245, 0.18) 0%, rgba(8, 104, 237, 0) 70%);
+}
+
+.vclass-glow-gold {
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.12) 0%, rgba(245, 158, 11, 0) 70%);
+}
+
+/* Bottom Sheet Animation for mobile modal */
+@keyframes vclassSlideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.vclass-sheet-enter {
+  animation: vclassSlideUp 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Glassmorphism Login Card for Mobile Translucent Backdrop */
+.vclass-glass-card {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 16px 40px -12px rgba(6, 25, 48, 0.38), 0 0 0 1px rgba(255, 255, 255, 0.5);
+}
+
+@media (min-width: 1024px) {
+  .vclass-glass-card {
+    background: #ffffff;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: 1px solid rgba(220, 229, 242, 0.9);
+    box-shadow: 0 20px 45px -10px rgba(10, 35, 68, 0.12), 0 8px 20px -6px rgba(10, 35, 68, 0.08);
+  }
+}
+
+/* Mobile compact adjustments to eliminate unnecessary scrolling */
+@media (max-width: 640px) {
+  .vclass-input {
+    height: 48px;
+  }
+  .vclass-btn-primary {
+    height: 48px;
+    font-size: 14px;
+  }
+  .vclass-btn-secondary {
+    height: 46px;
+    font-size: 13px;
+  }
+}

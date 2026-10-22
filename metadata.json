@@ -1,0 +1,6 @@
+{
+  "name": "Salem Montessori VClass & E-Learning Platform",
+  "description": "Comprehensive school management, interactive virtual classrooms, Montessori e-learning, assessments, and parent tracking for Salem Montessori School.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

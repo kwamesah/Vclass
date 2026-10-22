@@ -1,0 +1,9 @@
+# Robots.txt for Salem Montessori VClass & E-Learning Platform
+User-agent: *
+Allow: /
+Allow: /vclass
+Allow: /courses
+Allow: /library
+Allow: /quizzes
+
+Sitemap: https://ais-pre-2ei6pdsi5g5bx7f4cidbga-680550430811.europe-west1.run.app/sitemap.xml
